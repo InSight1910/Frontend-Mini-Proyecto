@@ -1,0 +1,38 @@
+<body class="fondo">
+  <br>
+  <div class="container">
+
+    <div class="row">
+      <div class="col mt-5">
+        <div class="text-center">
+          <img src="https://image.flaticon.com/icons/png/512/3271/3271390.png" alt="" width="300px" height="300px">
+        </div>
+        <h5 class="mt-2">Conectate a la super increible aplicacion para poder salir de la rutina y darle un giro a tu
+          vida
+          te pagaremos 500 dolares por registrarte
+        </h5>
+      </div>
+
+      <div class="col mt-5">
+        <form class="mat-elevation-z4 cajita text-center" style="padding: 1em;">
+          <br>
+          <mat-form-field appearance="outline">
+            <mat-label for="user">Correo Electrónico</mat-label>
+            <input type="email" name="user" matInput required placeholder="Correo Electronico" [(ngModel)]="user">
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" name="pass" matInput required placeholder="Contraseña" [(ngModel)]="pass">
+          </mat-form-field>
+
+          <br>
+          <button mat-raised-button (click)="validar(user,pass)" color="primary">Ingresar</button>
+          <p class="text-danger mt-2"> {{mensaje}}</p>
+          <dl><a href="#">Recuperar Contraseña</a></dl>
+          <hr>
+          <button type="button" class="btn btn-success" routerLink="registro">Registrarse</button>
+        </form>
+      </div>
+    </div>
+  </div>

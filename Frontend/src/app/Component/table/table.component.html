@@ -1,0 +1,44 @@
+<div >
+  <mat-toolbar color="primary" style="padding: 2em;">
+      <span routerLink="" style="cursor: pointer;" class="mt-2">La super increible aplicacion</span>
+      <span class="example-spacer"></span>
+        <div class="dropdown">
+          <button mat-flat-button color="primary" style="margin-left: 1em;" class="mt-2"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Ver Opciones
+          </button>
+          <div class="dropdown-menu mr-5" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" (click)="openDialog()">Politicas y Privacidad</a>
+            <a class="dropdown-item" (click)="openPreguntas()">Preguntas Frecuentes</a>
+            <a class="dropdown-item" routerLink="">Cerrar Sesion</a>
+          </div>
+        </div>
+    </mat-toolbar>
+  </div>
+
+<div style="width: 70%; margin: 1em auto;" class="mat-elvationz2">
+  <mat-table [dataSource]="dataSource">
+    <ng-container *ngFor="let column of columns" matColumnDef={{column.name}}>
+      <mat-header-cell *matHeaderCellDef> {{column.title}} </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user[column.name]}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="botonDelete">
+      <mat-header-cell *matHeaderCellDef> Eliminar </mat-header-cell>
+      <mat-cell *matCellDef="let estudiante; index as i">
+        <button mat-mini-fab color="warn" (click)="eliminar(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="botonUpdate">
+      <mat-header-cell *matHeaderCellDef> Actualizar datos </mat-header-cell>
+      <mat-cell *matCellDef="let estudiante; index as i">
+        <button (click)="openFormulario(estudiante)" mat-mini-fab color="primary" >
+          <mat-icon>autorenew</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columnasAMostrar"></mat-header-row>
+    <mat-row *matRowDef="let myRowData; columns: columnasAMostrar"></mat-row>
+  </mat-table>
+</div>

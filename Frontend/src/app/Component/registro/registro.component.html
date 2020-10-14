@@ -1,0 +1,71 @@
+<div >
+  <mat-toolbar color="primary" style="padding: 2em;">
+      <span routerLink="" style="cursor: pointer;" class="mt-2">La super increible aplicacion</span>
+      <span class="example-spacer"></span>
+        <div class="dropdown">
+          <button mat-flat-button color="primary" style="margin-left: 1em;" class="mt-2"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Ver Opciones
+          </button>
+          <div class="dropdown-menu mr-5" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" (click)="openDialog()">Politicas y Privacidad</a>
+            <a class="dropdown-item" (click)="openPreguntas()">Preguntas Frecuentes</a>
+          </div>
+        </div>
+    </mat-toolbar>
+  </div>
+
+
+
+<div style="width: 50%; margin: 2em auto" class="container">
+
+  <div class="text-center mt-5">
+
+    <h1 style="text-align: center;"> Crear una cuenta</h1>
+    <h4 class="mt-2">La super increible app te esta esperando</h4>
+  </div>
+  <div class="mt-3">
+    <form style="padding: 1em;">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input name="name" [(ngModel)]="name" matInput required placeholder="Nombre Completo">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Correo</mat-label>
+        <input matInput type="email" [(ngModel)]="mail" name="email" required placeholder="Correo Electronico">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" [(ngModel)]="password" name="password" matInput required placeholder="Contraseña">
+
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Genero</mat-label>
+        <mat-select [(value)]="gender">
+          <mat-option value="" disiabled>Seleccione Genero</mat-option>
+          <mat-option *ngFor="let gender of genero" [value]="gender">{{gender}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-checkbox color="primary" required style="width: 100%">
+        He leido y estoy de acuerdo con las politicas de privacidad
+      </mat-checkbox>
+      <br>
+      <p class="text-danger mt-2"> {{mensaje}}</p>
+
+      <button mat-raised-button color="primary" (click)="crearUsuario(); validar(password)" routerlink="inicio"  style="margin: 1em 1em 0 0">Registrar</button>
+      <button type="reset" mat-raised-button color="warn" style="margin: 1em 1em 0 0">limpiar</button>
+    </form>
+  </div>
+
+
+</div>

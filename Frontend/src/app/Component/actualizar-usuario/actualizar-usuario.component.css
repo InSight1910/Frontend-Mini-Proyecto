@@ -1,0 +1,13 @@
+mat-form-field{
+    width: 100%;
+  }
+  
+  .example-custom-date-class {
+    background: orange;
+    border-radius: 100%;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  

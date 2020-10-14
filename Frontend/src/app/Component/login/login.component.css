@@ -1,0 +1,26 @@
+.cajita{
+  background-color: #ffffff;
+  border-radius: 20px;
+
+}
+
+button{
+  width: 80%;
+}
+
+
+
+.fondo {
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+
+  background-size: cover;
+}
+
+.titulo{
+  text-decoration-color: #ff7171;
+}
+
+mat-form-field {
+  width: 80%;
+}
